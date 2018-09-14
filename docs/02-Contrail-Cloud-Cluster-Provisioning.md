@@ -215,4 +215,3 @@ cd /usr/share/contrail/contrail-kolla-ansible
 
 * <https://github.com/Juniper/contrail-ansible-deployer/wiki>
 * https://github.com/Juniper/contrail-command-deployer/wiki/Using-Ansible-to-launch-the-Contrail-Command-Containers
-* <https://github.com/Juniper/vqfx10k-vagrant>

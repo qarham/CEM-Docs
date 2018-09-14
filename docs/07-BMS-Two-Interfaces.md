@@ -1,6 +1,6 @@
 # BMS Multiple Interfaces Connection to different Leafs (TOR)
 
-This use-case is for BMS having two interfaces connected to a separate vQFX leaf in underlay and to separate Virtual Networks VN-01 & VN-02. This use-case is only for "cem-1x2-vqfx-8srvs" topology. Here is topology high level diagram.
+This use-case is for BMS having two interfaces connected to a separate QFX leafs in the underlay and to separate Virtual Networks VN-01 & VN-02. This use-case is only for 1x2 QFX topology. Here is topology high level diagram.
 
 
 ![BMS Multiple Interfaces](images/BMS-2-IFs-01.png)
@@ -36,16 +36,16 @@ Created BMS1-2 using l12-srv3 interface eth3
 
 ## Leaf Configuration verification
 
-l12-srv3 "eth2" connection to vQFX2 xe-0/0/3
+l12-srv3 "eth2" connection to QFX2 xe-0/0/3
 
 ```bash
-vagrant@vqfx2> show configuration interfaces xe-0/0/3 | display inheritance no-comments | display set 
+vagrant@qfx2> show configuration interfaces xe-0/0/3 | display inheritance no-comments | display set 
 set interfaces xe-0/0/3 flexible-vlan-tagging
 set interfaces xe-0/0/3 native-vlan-id 4094
 set interfaces xe-0/0/3 encapsulation extended-vlan-bridge
 set interfaces xe-0/0/3 unit 0 vlan-id 4094
 
-vagrant@vqfx2> show ethernet-switching table    
+vagrant@qfx2> show ethernet-switching table    
 
 MAC flags (S - static MAC, D - dynamic MAC, L - locally learned, P - Persistent static
            SE - statistics enabled, NM - non configured MAC, R - remote PE MAC, O - ovsdb MAC)
@@ -62,7 +62,7 @@ Routing instance : default-switch
    default             08:00:27:c5:c1:7b   D        xe-0/0/2.0           
 
 
-vagrant@vqfx2> show evpn database               
+vagrant@qfx2> show evpn database               
 Instance: default-switch
 VLAN  DomainId  MAC address        Active source                  Timestamp        IP address
      4          02:21:d7:4f:82:f2  172.16.2.101                   Sep 05 21:15:51  10.1.1.3
@@ -72,17 +72,17 @@ VLAN  DomainId  MAC address        Active source                  Timestamp     
 
  ```
 
-l12-srv3 "eth3" connection to vQFX3 xe-0/0/3
+l12-srv3 "eth3" connection to QFX3 xe-0/0/3
 
 ```bash
-vagrant@vqfx3> show configuration interfaces xe-0/0/3 | display inheritance no-comments | display set    
+vagrant@qfx3> show configuration interfaces xe-0/0/3 | display inheritance no-comments | display set    
 set interfaces xe-0/0/3 flexible-vlan-tagging
 set interfaces xe-0/0/3 native-vlan-id 4094
 set interfaces xe-0/0/3 encapsulation extended-vlan-bridge
 set interfaces xe-0/0/3 unit 0 vlan-id 4094
 
 {master:0}
-vagrant@vqfx3> show ethernet-switching table                                                             
+vagrant@qfx3> show ethernet-switching table                                                             
 
 MAC flags (S - static MAC, D - dynamic MAC, L - locally learned, P - Persistent static
            SE - statistics enabled, NM - non configured MAC, R - remote PE MAC, O - ovsdb MAC)
@@ -99,7 +99,7 @@ Routing instance : default-switch
    default             08:00:27:b1:6b:18   D        xe-0/0/1.0           
 
 {master:0}
-vagrant@vqfx3> show evpn database                                                                        
+vagrant@qfx3> show evpn database                                                                        
 Instance: default-switch
 VLAN  DomainId  MAC address        Active source                  Timestamp        IP address
      5          02:3a:13:76:57:db  172.16.2.101                   Sep 06 04:17:12  20.1.1.3
@@ -153,9 +153,6 @@ PING 20.1.1.3 (20.1.1.3) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1000ms
 rtt min/avg/max/mdev = 200.625/418.235/635.845/217.610 ms
  ``` 
-
-
-```
 
 
 

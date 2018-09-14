@@ -2,7 +2,7 @@
 
 At this stage our Contrail Fabric Manager setup is up and ready for some overlay/underlay use-cases testing. Let's test BMS to VM intra Virtual Network Type-2 connectivity, please follow below instructions.
 
-![Fabric Creation](images/Intra-BMS-VM-Type2.png)
+![Fabric Creation](images/CEM-UC-04-Topology.png)
 
 ## 1. Created Workload
 
@@ -279,4 +279,3 @@ show interfaces vtep
 ### References
 
 * <https://github.com/Juniper/contrail-ansible-deployer/wiki>
-* <https://github.com/Juniper/vqfx10k-vagrant>

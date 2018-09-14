@@ -1,14 +1,14 @@
 # BMS to VM Inter VN
 
-At this point we are going to extend our BMS-VM fabric by creating a non-LCM BMS instance in VN-02 and enabling L3 connectivity between VMs and BMS servers running in VN-01 and VN-02 using EVPN Type-5 VRFs anchored on the Spine vQFX (CRB).
+At this point we are going to extend our BMS-VM fabric by creating a non-LCM BMS instance in VN-02 and enabling L3 connectivity between VMs and BMS servers running in VN-01 and VN-02 using EVPN Type-5 VRFs anchored on the Spine QFX (CRB).
 
-![Fabric Creation](images/Inter-BMS-VM-Type5.png)
+![Fabric Creation](images/CEM-UC-05-Topology.png)
 
 
 ## 1. Add Non-LCM BMS node - l-srv4
 
 Navigate to INFRASTRUCTURE > Servers on the Contrail Command UI and click on Add button on the left top corner to add the second BMS server l-srv4. l-srv4
-eth2 interface MAC should be provided under Network Interfaces MAC address and specify "Leaf Device/TOR - Interface" as vqfx2-xe-0/0/4.
+eth2 interface MAC should be provided under Network Interfaces MAC address and specify "Leaf Device/TOR - Interface" as qfx2-xe-0/0/4.
 
 ![Add l-srv4](images/Inter-VN-BMS-VM-01.png)
 
@@ -24,7 +24,7 @@ that IP address. On l-srv4 flush the 172 ip address on eth2 and statically confi
 
 ![Launch BMS2 in VN-02](images/Inter-VN-BMS-VM-02.png)
 
-## Configs pushed to the leaf vqfx.
+## Configs pushed to the leaf qfx.
 
 ```bash
 set groups __contrail__ interfaces lo0 unit 0 family inet address 2.2.2.2/32 primary
@@ -140,7 +140,7 @@ rtt min/avg/max/mdev = 100.730/153.334/301.693/77.885 ms
 [root@l-srv4 ~]#
 ```
 ```bash
-vqfx2:
+qfx2:
 
 show route table default-switch.evpn.0 | no-more
 show evpn database | no-more
@@ -149,7 +149,7 @@ show ethernet-switching table | no-more
 
 ## 4. Connecting VN-01 and VN-02 using EVPN Type-5 logical router.
 
-Create a logical router LR1 and extend it to vqfx1 for EVPN Type-5 CRB functionality. Attach VN-01 and VN-02. Assign a L3 VNI of 1024.
+Create a logical router LR1 and extend it to qfx1 for EVPN Type-5 CRB functionality. Attach VN-01 and VN-02. Assign a L3 VNI of 1024.
 
 ![Create LR](images/Inter-VN-BMS-VM-03.png)
 ![Create LR](images/Inter-VN-BMS-VM-04.png)
@@ -158,10 +158,10 @@ Create a logical router LR1 and extend it to vqfx1 for EVPN Type-5 CRB functiona
 Note: Inorder to enable EVPN type-5 feature on Contrail VXLAN routing should be enabled at the project level.
 ```
 
-## Configuration pushed to vQFX spine switch.
+## Configuration pushed to QFX spine switch.
 
 ```bash
-vagrant@vqfx1# show groups __contrail__ | display set | no-more
+vagrant@qfx1# show groups __contrail__ | display set | no-more
 set groups __contrail__ interfaces lo0 unit 0 family inet address 2.2.2.1/32 primary
 set groups __contrail__ interfaces lo0 unit 0 family inet address 2.2.2.1/32 preferred
 set groups __contrail__ interfaces lo0 unit 1007 family inet address 127.0.0.1/32
@@ -320,7 +320,7 @@ rtt min/avg/max/mdev = 499.379/546.901/594.423/47.522 ms
 ```
 
 ```bash
-vqfx1:
+qfx1:
 show route table default-switch.evpn.0
 show evpn database
 show arp no-resolve
