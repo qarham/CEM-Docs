@@ -4,7 +4,6 @@ Please follow below instructions for Contrail command installation. AT the end y
 
 Here is CEM topology diagram and this use-case covers Contrail Command Installation using 5.0.1 GA code.
 
-
 ![Conttrail Command Install](images/CEM-UC-Topology-Diagram.png)
 
 ## Contrail Command 5.0.1 GA Procedure

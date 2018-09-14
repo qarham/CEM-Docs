@@ -1,6 +1,9 @@
 # Contrail Enterprise Multi-Cloud Use-cases Documents
 
-This repo is created to capture CEM use-cases, provisioning flow and steps.
+This repo is created to capture CEM use-cases provisioning flow and steps by steps instructions. Here is setup topology diagram used during testing.
+
+![Conttrail Command Install](docs/images/CEM-UC-Topology-Diagram.png)
+
 
 ## Use-cases
 
@@ -20,6 +23,4 @@ This repo is created to capture CEM use-cases, provisioning flow and steps.
 
 * <https://github.com/Juniper/contrail-ansible-deployer/wiki>
 * <https://github.com/Juniper/contrail-command-deployer/wiki/Using-Ansible-to-launch-the-Contrail-Command-Containers>
-* <https://github.com/Juniper/vqfx10k-vagrant>
-* <https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4>
 * <https://github.com/qarham/cfm-vagrant>
