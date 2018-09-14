@@ -1,4 +1,4 @@
-# ![alt text](images/CC-Logo.png) Installation of Contrail Command
+# ![alt text](images/cc-Logo.png) Installation of Contrail Command
 
 Please follow below instructions for Contrail command installation. AT the end you will find whole Contrail Command install recorded CLI session.
 
