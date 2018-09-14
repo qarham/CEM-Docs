@@ -1,4 +1,4 @@
-# Contrail Enterprise Multi-Cloud Use-cases Documents
+# ![alt text](docs/images/CEM-Logo-01.png) Contrail Enterprise Multi-Cloud Use-cases Documents
 
 This repo is created to capture CEM use-cases provisioning flow and steps by steps instructions. Here is setup topology diagram used during testing.
 
