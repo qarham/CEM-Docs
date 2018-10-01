@@ -9,7 +9,7 @@ This repo is created to capture CEM use-cases provisioning flow and steps by ste
 
 * ### [UC-01-Contrail_Command_Installtion](docs/01-Install-Contrail-Command.md)
 
-* ### [UC-02-Contrail_Cloud_Cluster_Provisioning](docs/02-OpenStack-Contrail-Cluster-Provisioning.md)
+* ### [UC-02-OpenStack-Contrail-Cluster-Provisioning](docs/02-OpenStack-Contrail-Cluster-Provisioning.md)
 
 * ### [UC-03-Fabric_Creation_Discovery_Onboarding](docs/03-Fabric-Creation-Discovery-Config.md)
 
