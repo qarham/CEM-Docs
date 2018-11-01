@@ -7,7 +7,7 @@ This repo is created to capture CEM use-cases provisioning flow and steps by ste
 
 ## Use-cases
 
-* ### [UC-01-Contrail_Command_Installtion](docs/01-Install-Contrail-Command.md)
+* ### [UC-01-Contrail_Command_Installation](docs/01-Install-Contrail-Command.md)
 
 * ### [UC-02-OpenStack-Contrail-Cluster-Provisioning](docs/02-OpenStack-Contrail-Cluster-Provisioning.md)
 
